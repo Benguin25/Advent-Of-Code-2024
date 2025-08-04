@@ -1,0 +1,214 @@
+/* Restaurant Search Styles */
+.restaurant-loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.restaurant-loading-animation {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.restaurant-loading-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border: 6px solid rgba(100, 255, 218, 0.1);
+  border-top-color: var(--accent-blue);
+  animation: spin 1.5s linear infinite;
+}
+
+.restaurant-loading-text {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: var(--accent-blue);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.restaurant-loading-subtext {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+.no-results {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px dashed rgba(100, 255, 218, 0.2);
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-results-icon {
+  font-size: clamp(3rem, 8vw, 5rem);
+  margin-bottom: 20px;
+  opacity: 0.8;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.no-results h3 {
+  color: var(--accent-blue);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  margin-bottom: 15px;
+}
+
+.no-results p {
+  max-width: 500px;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* Restaurant card animations */
+.restaurant-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background: transparent;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(233, 144, 214, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.restaurant-card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-pink);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delay for multiple cards */
+.restaurant-container > div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.restaurant-container > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.restaurant-container > div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.restaurant-container > div:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.restaurant-container > div:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.restaurant-container > div:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.restaurant-container > div:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.restaurant-container > div:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.restaurant-container > div:nth-child(9) {
+  animation-delay: 0.9s;
+}
+.restaurant-container > div:nth-child(10) {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .restaurant-loading-container {
+    padding: 15px;
+    min-height: 60vh;
+  }
+
+  .restaurant-loading-animation {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .restaurant-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .restaurant-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .no-results {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-loading-container {
+    padding: 10px;
+  }
+
+  .restaurant-card {
+    padding: 15px;
+  }
+
+  .no-results {
+    padding: 20px 10px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

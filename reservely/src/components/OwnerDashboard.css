@@ -1,0 +1,611 @@
+/* Custom styled select with custom arrow for OwnerDashboard */
+.themed-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: linear-gradient(135deg, #007bff 0%, #3498db 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  min-width: 220px;
+  padding: 14px 48px 14px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 8.293a1 1 0 011.414 0L10 9.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px 20px;
+  transition: box-shadow 0.2s;
+}
+
+.themed-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.themed-dropdown option {
+  background: #232b4d;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+/* OwnerDashboard.css */
+
+/* Quick Access Section for View Reservations */
+.quick-access-section {
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(100, 255, 218, 0.1);
+  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.quick-access-btn {
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #e990d6 0%, #007bff 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(233, 144, 214, 0.2);
+}
+
+.quick-access-btn:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 144, 214, 0.3);
+}
+
+.quick-access-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.quick-access-icon {
+  font-size: 2rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.quick-access-content {
+  flex: 1;
+  text-align: left;
+}
+
+.quick-access-title {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.quick-access-description {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.confirmation-note {
+  text-align: center;
+  color: #8892b0;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Primary Action Card for View Reservations */
+.primary-action-card {
+  background: linear-gradient(135deg, #e990d6 0%, #007bff 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(233, 144, 214, 0.2);
+  box-shadow: 0 8px 25px rgba(233, 144, 214, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(233, 144, 214, 0.3);
+}
+
+.primary-action-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.primary-action-title {
+  color: #1a1a1a;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.primary-action-description {
+  color: #2c3e50;
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Coming Soon Cards */
+.coming-soon-card {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+.coming-soon-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Reduced opacity from 0.7 to 0.3 */
+  color: #64ffda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  z-index: 2;
+  backdrop-filter: blur(1px); /* Reduced blur from 2px to 1px */
+}
+
+.coming-soon-overlay span {
+  background: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Added shadow for better visibility */
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+.dashboard-title {
+  background: linear-gradient(135deg, #007bff 0%, #e990d6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #007bff 0%, #3498db 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Restaurant Overview */
+.restaurant-overview {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-name {
+  color: #007bff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.restaurant-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.restaurant-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.restaurant-info-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.restaurant-info-value {
+  color: white;
+  font-weight: 400;
+}
+
+/* Booking Link Section */
+.booking-link-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.booking-link-title {
+  color: #007bff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+}
+
+.link-display {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.link-input {
+  flex: 1;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(0, 123, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+}
+
+.link-input:focus {
+  outline: none;
+  border-color: #007bff;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #007bff 0%, #3498db 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+.link-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Management Actions */
+.management-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-top: 2rem;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.management-title {
+  color: #007bff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
+
+.action-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.action-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 123, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #007bff 0%, #e990d6 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.action-card:hover::before {
+  transform: scaleX(1);
+}
+
+.action-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 123, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.action-card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.action-card-title {
+  background: linear-gradient(135deg, #007bff 0%, #e990d6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.action-card-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Welcome State */
+.welcome-state {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.welcome-title {
+  background: linear-gradient(135deg, #007bff 0%, #e990d6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  margin-right: 2rem;
+}
+
+.welcome-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+.welcome-description {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  margin: 0 0 3rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.create-restaurant-btn {
+  background: linear-gradient(135deg, #007bff 0%, #e990d6 100%);
+  color: white;
+  border: none;
+  padding: 18px 36px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.create-restaurant-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.5);
+}
+
+/* Loading and Error States */
+.loading-state,
+.error-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.loading-text {
+  color: #007bff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.error-container {
+  background: rgba(233, 144, 214, 0.1);
+  border: 1px solid rgba(233, 144, 214, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+}
+
+.error-text {
+  color: #e990d6;
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.error-btn {
+  background: linear-gradient(135deg, #e990d6 0%, #007bff 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 144, 214, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .action-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .action-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page-wrapper {
+    padding: 1rem 0;
+  }
+
+  .dashboard-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .link-display {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .copy-btn {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .action-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .action-card {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-page-wrapper {
+    padding: 0.5rem 0;
+  }
+
+  .dashboard-container {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-url {
+    font-size: 0.8rem;
+    word-break: break-all;
+  }
+
+  .copy-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .action-card {
+    padding: 1.5rem;
+  }
+
+  .action-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .action-card p {
+    font-size: 0.9rem;
+  }
+
+  .welcome-title {
+    font-size: 2.5rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .create-restaurant-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

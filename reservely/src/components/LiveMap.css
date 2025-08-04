@@ -1,0 +1,264 @@
+/* LiveMap.css */
+
+.live-map-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.live-map-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.loading-content {
+  text-align: center;
+  color: #8892b0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(100, 255, 218, 0.1);
+  border-top: 3px solid #64ffda;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.live-map-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #8892b0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.live-map-empty h3 {
+  color: #e990d6;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.create-map-link {
+  color: #64ffda;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.create-map-link:hover {
+  color: #e990d6;
+  text-decoration: underline;
+}
+
+/* Legend */
+.live-map-legend {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.live-map-legend h3 {
+  color: #64ffda;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.legend-items {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8892b0;
+  font-size: 0.9rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.legend-note {
+  color: #8892b0;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Canvas */
+.live-map-canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.live-map-canvas {
+  background: #1a1a1a;
+  border: 2px solid #64ffda;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease;
+}
+
+.live-map-canvas:hover {
+  border-color: #e990d6;
+}
+
+/* Auto-refresh indicator */
+.auto-refresh-indicator {
+  text-align: center;
+  color: #8892b0;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+/* Confirmation Dialog */
+.confirm-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.confirm-dialog {
+  background: rgba(17, 34, 64, 0.95);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.confirm-dialog h3 {
+  color: #e990d6;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.confirm-dialog p {
+  color: #8892b0;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #e990d6 0%, #007bff 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(233, 144, 214, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 144, 214, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(136, 146, 176, 0.1);
+  color: #8892b0;
+  border: 1px solid rgba(136, 146, 176, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(136, 146, 176, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .live-map-canvas {
+    width: 600px;
+    height: 450px;
+  }
+  
+  .legend-items {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .live-map-canvas {
+    width: 400px;
+    height: 300px;
+  }
+  
+  .live-map-canvas-container {
+    padding: 1rem;
+  }
+  
+  .legend-items {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .confirm-dialog {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .confirm-dialog-actions {
+    flex-direction: column;
+  }
+}
